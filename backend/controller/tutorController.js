@@ -31,7 +31,7 @@ exports.askTutor = async (req, res) => {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_TUTOR_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:5173",
+          "HTTP-Referer": "https://quizoma-frontend.onrender.com",
           "X-Title": "TutorAI",
         },
       }
