@@ -12,7 +12,7 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/signup', {
+      const res = await axios.post('https://quizoma-backend.onrender.com/api/auth/signup', {
         email,
         password,
         confirmPassword,

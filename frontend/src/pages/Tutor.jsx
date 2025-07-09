@@ -16,7 +16,7 @@ export default function Tutor() {
     setQuestion('');
 
     try {
-  const res = await fetch("http://localhost:3000/api/quiz/tutor/ask", {
+  const res = await fetch("https://quizoma-backend.onrender.com/api/quiz/tutor/ask", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question }),

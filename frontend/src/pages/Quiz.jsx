@@ -25,7 +25,7 @@ export default function QuizSetup() {
 
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/api/quiz/generate", {
+      const response = await fetch("https://quizoma-backend.onrender.com/api/quiz/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(quizSettings),
