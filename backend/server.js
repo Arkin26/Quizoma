@@ -8,11 +8,23 @@ const cors = require('cors');
 
 const PORT = 3000;
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://quizoma-frontend.onrender.com'
+];
+
 app.use(cors({
-    origin: "http://localhost:5173", 
-    methods: ["POST", "GET"],         
-    credentials: true                 
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ["POST", "GET"],
+  credentials: true
 }));
+
 
 app.use(express.json());
 
