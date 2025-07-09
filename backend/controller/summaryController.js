@@ -31,7 +31,7 @@ exports.getTopicOverview = async (req, res) => {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_SUMMARY_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:5173",
+          "HTTP-Referer": "https://quizoma-frontend.onrender.com",
           "X-Title": "SummaryAI",
         },
       }
