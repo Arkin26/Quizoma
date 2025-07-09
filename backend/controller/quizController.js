@@ -32,7 +32,7 @@ async function getExplanation(question, correctAnswer) {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
-          "HTTP-Referer": "http://localhost:5173",
+          "HTTP-Referer": "https://quizoma-frontend.onrender.com",
           "X-Title": "Quizoma"
         }
       }
