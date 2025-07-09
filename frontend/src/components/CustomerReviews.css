@@ -1,0 +1,261 @@
+/* --- Section Layout --- */
+.quizoma-reviews-section {
+  position: relative;
+  background-color: #f3f4f6;
+  padding: 4rem 1rem;
+  overflow: hidden;
+}
+
+.quizoma-reviews-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --- Header --- */
+.quizoma-reviews-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.quizoma-reviews-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6A0DFF, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.quizoma-reviews-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #4b5563;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Scroll Container --- */
+.quizoma-reviews-scroll-container {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.quizoma-reviews-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: quizomaScrollReviews 20s linear infinite;
+  width: max-content;
+  padding: 1rem 0;
+}
+
+.quizoma-reviews-track:hover {
+  animation-play-state: paused;
+}
+
+/* --- Review Card --- */
+.quizoma-review-card {
+  width: clamp(280px, 80vw, 380px);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  padding: 1.5rem;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.quizoma-review-card:hover {
+  transform: scale(1.04);
+  border-color: rgba(106, 13, 255, 0.3);
+}
+
+.quizoma-review-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(106, 13, 255, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 24px;
+  z-index: 0;
+}
+
+.quizoma-review-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Card Content --- */
+.quizoma-review-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+}
+
+.quizoma-review-stars {
+  display: flex;
+  gap: 0.25rem;
+  color: #fbbf24;
+  font-size: 1.1rem;
+}
+
+.quizoma-review-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1f2937;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+/* --- Author Info --- */
+.quizoma-review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.quizoma-author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quizoma-author-avatar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+}
+
+.quizoma-author-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.quizoma-author-role {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* --- Decoration --- */
+.quizoma-review-decoration {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(106, 13, 255, 0.2), rgba(139, 92, 246, 0.2));
+  border-radius: 50%;
+  filter: blur(24px);
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.quizoma-review-card:hover .quizoma-review-decoration {
+  background: linear-gradient(135deg, rgba(106, 13, 255, 0.3), rgba(139, 92, 246, 0.3));
+  transform: scale(1.1);
+}
+
+/* --- Gradients --- */
+.quizoma-gradient-1 { background: linear-gradient(135deg, #6A0DFF, #8b5cf6); }
+.quizoma-gradient-2 { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+.quizoma-gradient-3 { background: linear-gradient(135deg, #ec4899, #f97316); }
+.quizoma-gradient-4 { background: linear-gradient(135deg, #f97316, #eab308); }
+.quizoma-gradient-5 { background: linear-gradient(135deg, #eab308, #22c55e); }
+.quizoma-gradient-6 { background: linear-gradient(135deg, #22c55e, #06b6d4); }
+.quizoma-gradient-7 { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+.quizoma-gradient-8 { background: linear-gradient(135deg, #3b82f6, #6A0DFF); }
+
+/* --- Background Decorations --- */
+.quizoma-bg-decoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: quizomaFloatDecoration 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.quizoma-bg-decoration-1 {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #6A0DFF, #8b5cf6);
+  top: 8%;
+  left: 8%;
+}
+
+.quizoma-bg-decoration-2 {
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(135deg, #ec4899, #f97316);
+  top: 65%;
+  right: 12%;
+  animation-delay: 2s;
+}
+
+.quizoma-bg-decoration-3 {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #22c55e, #06b6d4);
+  bottom: 18%;
+  left: 18%;
+  animation-delay: 4s;
+}
+
+/* --- Animations --- */
+@keyframes quizomaScrollReviews {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes quizomaFloatDecoration {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
+}
+
+/* --- Responsive Typography --- */
+@media (min-width: 768px) {
+  .quizoma-reviews-title {
+    font-size: 3rem;
+  }
+
+  .quizoma-reviews-subtitle {
+    font-size: 1.1rem;
+  }
+}

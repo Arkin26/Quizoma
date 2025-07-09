@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+.Bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.Libre-Baskerville {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.Roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.Archivo {
+  font-family: 'Archivo', cursive;
+}
+
+.Righteous{
+  font-family:'Righteous',sans-serif;
+}
+

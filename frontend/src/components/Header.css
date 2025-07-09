@@ -1,0 +1,793 @@
+/* .quizoma-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quizoma-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  height: 70px;
+}
+
+.quizoma-header-container {
+  max-width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.quizoma-nav-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.quizoma-nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.quizoma-nav-link {
+  background: none;
+  border: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.quizoma-nav-link:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.quizoma-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6A0DFF, #8b5cf6);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.quizoma-nav-link:hover::after {
+  width: 80%;
+}
+
+.quizoma-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Righteous', cursive;
+  background: linear-gradient(135deg, #6A0DFF 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.quizoma-logo:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.quizoma-nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.quizoma-saved-quizzes {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-saved-quizzes:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+}
+
+.quizoma-login-link {
+  background: none;
+  border: none;
+  color: #374151;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-login-link:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+}
+
+.quizoma-signup-btn {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-signup-btn:hover {
+  transform: translateY(-2px);
+}
+
+.quizoma-signup-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.quizoma-profile-container {
+  position: relative;
+}
+
+.quizoma-profile-btn {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #6A0DFF 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-profile-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quizoma-profile-btn:hover::before {
+  opacity: 1;
+}
+
+.quizoma-profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(106, 13, 255, 0.4);
+}
+
+.quizoma-profile-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1);
+}
+
+.quizoma-profile-btn:hover .quizoma-profile-icon {
+  transform: scale(1.1);
+}
+
+.quizoma-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 120px;
+}
+
+.quizoma-account-btn,
+.quizoma-logout-btn {
+  background: none;
+  border: none;
+  color: #374151;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.25rem;
+}
+
+.quizoma-account-btn:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+}
+
+.quizoma-logout-btn {
+  margin-bottom: 0;
+}
+
+.quizoma-logout-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(106, 13, 255, 0.3);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% { 
+    transform: translate(-50%, -50%) translateY(0px); 
+  }
+  25% { 
+    transform: translate(-50%, -50%) translateY(-8px); 
+  }
+  50% { 
+    transform: translate(-50%, -50%) translateY(0px); 
+  }
+  75% { 
+    transform: translate(-50%, -50%) translateY(-4px); 
+  }
+}
+
+@media (max-width: 768px) {
+  .quizoma-header-container {
+    padding: 0 1rem;
+  }
+  
+  .quizoma-nav-links {
+    gap: 1rem;
+  }
+  
+  .quizoma-nav-link {
+    font-size: 14px;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .quizoma-logo {
+    font-size: 24px;
+  }
+  
+  .quizoma-nav-right {
+    gap: 1rem;
+  }
+  
+  .quizoma-signup-btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 640px) {
+  .quizoma-nav-links {
+    gap: 0.5rem;
+  }
+  
+  .quizoma-nav-link {
+    padding: 0.3rem 0.6rem;
+    font-size: 13px;
+  }
+  
+  .quizoma-logo {
+    font-size: 22px;
+  }
+  
+  .quizoma-saved-quizzes,
+  .quizoma-login-link {
+    font-size: 13px;
+    padding: 0.4rem 0.8rem;
+  }
+} */
+
+/* Quizoma Header Styles */
+.quizoma-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quizoma-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  height: 70px;
+}
+
+.quizoma-header-container {
+  max-width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Left Navigation */
+.quizoma-nav-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.quizoma-nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.quizoma-nav-link {
+  background: none;
+  border: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.quizoma-nav-link:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.quizoma-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6A0DFF, #8b5cf6);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.quizoma-nav-link:hover::after {
+  width: 80%;
+}
+
+/* Center Logo */
+.quizoma-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Righteous', cursive;
+  background: linear-gradient(135deg, #6A0DFF 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.quizoma-logo:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Right Navigation */
+.quizoma-nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.quizoma-saved-quizzes {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-saved-quizzes:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+}
+
+.quizoma-login-link {
+  background: none;
+  border: none;
+  color: #374151;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-login-link:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+}
+
+.quizoma-signup-btn {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-signup-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Profile Section */
+.quizoma-profile-container {
+  position: relative;
+}
+
+.quizoma-profile-btn {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #6A0DFF 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quizoma-profile-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quizoma-profile-btn:hover::before {
+  opacity: 1;
+}
+
+.quizoma-profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(106, 13, 255, 0.4);
+}
+
+.quizoma-profile-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1);
+}
+
+.quizoma-profile-btn:hover .quizoma-profile-icon {
+  transform: scale(1.1);
+}
+
+.quizoma-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 120px;
+}
+
+.quizoma-account-btn,
+.quizoma-logout-btn {
+  background: none;
+  border: none;
+  color: #374151;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.25rem;
+}
+
+.quizoma-account-btn:hover {
+  color: #6A0DFF;
+  background: rgba(106, 13, 255, 0.1);
+}
+
+.quizoma-logout-btn {
+  margin-bottom: 0;
+}
+
+.quizoma-logout-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Ripple Effect */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(106, 13, 255, 0.3);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Logo Float Animation */
+@keyframes logoFloat {
+  0%, 100% { 
+    transform: translate(-50%, -50%) translateY(0px); 
+  }
+  25% { 
+    transform: translate(-50%, -50%) translateY(-8px); 
+  }
+  50% { 
+    transform: translate(-50%, -50%) translateY(0px); 
+  }
+  75% { 
+    transform: translate(-50%, -50%) translateY(-4px); 
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quizoma-header-container {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 12px;
+    justify-content: center;
+    padding: 10px 1rem;
+  }
+
+  .quizoma-nav-left,
+  .quizoma-nav-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .quizoma-nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .quizoma-nav-link,
+  .quizoma-login-link,
+  .quizoma-signup-btn {
+    font-size: 14px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .quizoma-profile-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .quizoma-profile-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .quizoma-logo {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .quizoma-nav-links {
+    gap: 8px;
+  }
+
+  .quizoma-nav-link {
+    padding: 0.3rem 0.6rem;
+    font-size: 13px;
+  }
+
+  .quizoma-signup-btn,
+  .quizoma-login-link {
+    font-size: 13px;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .quizoma-profile-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .quizoma-profile-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .quizoma-logo {
+    font-size: 20px;
+  }
+}
+
+/* Hide desktop links on mobile */
+.desktop-only {
+  display: flex;
+}
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: flex;
+    align-items: center;
+  }
+
+  .quizoma-mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .quizoma-mobile-menu-icon button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .quizoma-mobile-menu-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: #374151;
+  }
+}
+
